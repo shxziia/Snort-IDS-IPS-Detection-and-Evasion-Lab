@@ -30,4 +30,4 @@ To ensure network traffic was observable, I generated ICMP echo requests from ka
 
 <img width="1656" height="175" alt="image" src="https://github.com/user-attachments/assets/a7f43365-5114-4d9a-859a-88b42a2959a9" />
 
-After starting the capture in Wireshark, I filtered the traffic to ICMP to focus only on the ping activity. From the capture, Wireshark showed successful comunication by capturing both ICMP Echo request and Echo Reply packets confirming end to end connectivity was working as expected. There were occasional ICMP "Destination unreachable (Port Unreachable)" messages, but they are attributed to the background network services and were not related to ICMP echo testing. 
+After starting the capture in Wireshark, I filtered the traffic to ICMP to focus only on the ping activity. From the capture, Wireshark showed successful comunication by capturing both ICMP Echo request and Echo Reply packets confirming end to end connectivity was working as expected. 
