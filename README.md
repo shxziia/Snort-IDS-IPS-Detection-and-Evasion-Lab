@@ -28,6 +28,6 @@ In order to validate network traffic independently from Snort alerts, Wireshark 
 This ensured full packet visibility and allowed traffic generated during attack simulations and intrusion detections to be analysed at protocol level.
 To ensure network traffic was observable, I generated ICMP echo requests from kali to the Metasploitable 2 target host to verify end to end connecctivity within the lab network.
 
-<img width="1656" height="175" alt="image" src="https://github.com/user-attachments/assets/a7f43365-5114-4d9a-859a-88b42a2959a9" />
+<img width="1655" height="142" alt="image" src="https://github.com/user-attachments/assets/86aef9b2-e232-4661-ad1a-b561fe5f25b7" />
 
 After starting the capture in Wireshark, I filtered the traffic to ICMP to focus only on the ping activity. From the capture, Wireshark showed successful comunication by capturing both ICMP Echo request and Echo Reply packets confirming end to end connectivity was working as expected. 
