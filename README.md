@@ -84,7 +84,22 @@ Nmap scan showing services and versions:
 <img width="621" height="825" alt="image" src="https://github.com/user-attachments/assets/2d0f8cb1-00de-4aed-9c76-bdd7ce72d53c" />
 <img width="630" height="708" alt="image" src="https://github.com/user-attachments/assets/665b0a50-56b2-45d1-a788-233d40ef25de" />
 
+The Nmap aggressive scan reveals multiple open ports and services and their versions. This expands the attack surface significantly as it highlights outdated and potentially vulnerable software such as vsftpd 2.3.4, OpenSSH 4.7p1, and Apache Tomcat 5.5.
 
 Nmap scan showing OS , script, SMB, and system info:
+
+<img width="631" height="465" alt="image" src="https://github.com/user-attachments/assets/ffb93c99-7c9e-497e-a72d-7f0513eac818" />
+
+The Nmap scan also reveals host script results and OS fingerprinting. The scan shows that the target machine was identified as a Linux system running on kernel 2.6.9-2.6.33 with outdated Samba services and insecure configurations such as disabled SMB message signing. 
+
+Wireshark output for Nmap -A scan:
+
+<img width="1640" height="271" alt="image" src="https://github.com/user-attachments/assets/130b6639-2f07-447e-aa10-eae5cb1f0c1a" />
+
+In Wireshark I filtered the packets to display only the SYN packets that were generated during the Nmap -A scan. The Wireshark capture shows multiple connection attempts to different ports on the target system, which confirms port enumeration activity.
+
+Snort ouput for Nmap -A scan:
+
+<img width="1282" height="592" alt="image" src="https://github.com/user-attachments/assets/33070dfe-efed-4c27-b343-372cce8ca9ce" />
 
 
