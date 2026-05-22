@@ -61,7 +61,11 @@ The "Follow TCP Stream" feature in Wireshark confirms that the output if fully e
 
 <img width="1097" height="711" alt="image" src="https://github.com/user-attachments/assets/cb59d2c6-d6a6-434e-9a1f-1146e40d4ee0" />
 
+MALICIOUS TRAFFIC - ATTACK SIMULATION
 
+Nmap was used to perform a TCP SYN scan to imitate reconnaissance activity against the target system. The Nmap scan "Nmap -sS 172.30.1.28" identifies open ports and running services and it is commonly used by attackers before exploitation. 
+
+<img width="543" height="532" alt="image" src="https://github.com/user-attachments/assets/257be4d3-c0a0-41d7-b646-33151fca17de" />
 
 
 
