@@ -102,4 +102,14 @@ Snort ouput for Nmap -A scan:
 
 <img width="1282" height="592" alt="image" src="https://github.com/user-attachments/assets/33070dfe-efed-4c27-b343-372cce8ca9ce" />
 
+Snort detected attempts such as SNMP requests, DNS version probing, Telnet access attempts, RPC port mapping, FTP anonymous login attempts, and web directory enumeration (robots.txt). There were some additional alerts such as VNC, X11, and IRC activity which were also flagged. 
+Most of these alerts were classified as "Attempted information leaks" with priority 2, while others were classified as "Misc Activity" or "Potential Corporate Privacy Violation". Snort has successfully detected network reconnaissance behaviour and service enumeration in real time.
+
+Based on the Nmap findings, Hydra was selected to perform dictionary based brute force attacks to imitate an attacker trying to gain unauthorized access through credentials.
+Initially, we considered using SSH services for brute force simulations based on Nmaps findings. However, during testing it was clear that the attack could not proceed due to SSH cryptographic incompatibility between the attacker and the target system. The Metasploitable 2 SSH service only supports MAC algorithms such as HMAC-MD5 and HMAC-SHA1, whereas Kali SSH client uses modern cruptographic standards such as HMAC-SHA2-256 and HMAC-SHA2-512. This means that the key exchange process failed which prevented authentication attempts being made.
+
+Unsuccessful SSH brute force attempt:
+
+<img width="648" height="193" alt="image" src="https://github.com/user-attachments/assets/2b09badc-3a6a-446d-aa69-b78c684803cb" />
+
 
