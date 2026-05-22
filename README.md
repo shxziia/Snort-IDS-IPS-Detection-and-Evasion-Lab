@@ -77,7 +77,14 @@ Snort successfully detected suspicious traffic produced by the Nmap SYN scan. Th
 
 <img width="1282" height="90" alt="image" src="https://github.com/user-attachments/assets/985c3a10-39b2-4797-a7e1-33da5f093c3a" />
 
+To gather deeper information about the revealed open ports and exposed services, we'll perform a more detailed enumeration scan using Nmaps aggressive scan option. The command we will use is "Nmap -A 172.30.1.28" which will gather additional information about the target system.
+
+Nmap scan showing services and versions:
+
+<img width="621" height="825" alt="image" src="https://github.com/user-attachments/assets/2d0f8cb1-00de-4aed-9c76-bdd7ce72d53c" />
+<img width="630" height="708" alt="image" src="https://github.com/user-attachments/assets/665b0a50-56b2-45d1-a788-233d40ef25de" />
 
 
+Nmap scan showing OS , script, SMB, and system info:
 
 
