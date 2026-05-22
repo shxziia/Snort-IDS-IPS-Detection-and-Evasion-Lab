@@ -120,9 +120,13 @@ Dictionary based brute force attack against FTP service using Hydra:
 
 I used Wireshark to analyse FTP traffic which was generated during brute force attack. The packet shows the FTP authentication process, this included the server response "331 Please specify the password" after the user command. The username was accepted and the server was waiting for the password input. Other packets show failed login responses "530 Login incorrect" confirming active dictionary based brute force activity against the FTP service.
 
-Wireshark FTP traffic analysis during brute force
+Wireshark FTP traffic analysis during brute force:
 
 <img width="1638" height="272" alt="image" src="https://github.com/user-attachments/assets/8332f5b9-2025-4f36-83a9-572f4d07550a" />
 
+While using Hydra to brute force attacks against FTP, Snort generated multiple alerts identifying repeated FTP login attempts. These alerts were classified as "Potentially Bad Traffic" with a priority level of 2. This indicates suspicious authentication behaviour and it confirms that IDS has successfullydetected patterns consistent with a dictionary based brute force attack against FTP service. 
 
-<img width="1638" height="272" alt="image" src="https://github.com/user-attachments/assets/9abff7ee-3196-45ec-a77b-c84a9c675675" />
+Snort detecting FTP brute force login attempts:
+
+<img width="1282" height="193" alt="image" src="https://github.com/user-attachments/assets/5f4cbb7a-658c-4920-962f-76cdc7b19cc2" />
+
