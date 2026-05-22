@@ -112,4 +112,11 @@ Unsuccessful SSH brute force attempt:
 
 <img width="648" height="193" alt="image" src="https://github.com/user-attachments/assets/2b09badc-3a6a-446d-aa69-b78c684803cb" />
 
+To mitigate this, we used Hydra against a weaker service such as FTP (port 21). FTP did not enforce encrypted authentication which allowed successful simulation of dictionary based brute force attacks. I combined Hydra with the RockYou password list to automatically test multiple username-password combinations against FTP login surface. 
+
+Dictionary based brute force attack against FTP service using Hydra:
+
+<img width="648" height="193" alt="image" src="https://github.com/user-attachments/assets/56243f45-6df1-4af2-b05f-fd51ef3a5461" />
+
+
 
