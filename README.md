@@ -59,7 +59,8 @@ Wireshark confirmed successful establishment of an SSH session through the TCP t
 
 The "Follow TCP Stream" feature in Wireshark confirms that the output if fully encrypted and in a non-readable format. After the initial key exchange all communication between the client and the server is protected using SSH encryption ilustrating that packet-level inspection cannot reveal session content.
 
-<img width="1096" height="703" alt="image" src="https://github.com/user-attachments/assets/05bb7f9d-b453-44bd-ab5f-50173f38fef7" />
+<img width="1097" height="711" alt="image" src="https://github.com/user-attachments/assets/cb59d2c6-d6a6-434e-9a1f-1146e40d4ee0" />
+
 
 
 
