@@ -87,11 +87,13 @@ The "Follow TCP Stream" feature in Wireshark confirms that the output if fully e
 
 Nmap was used to perform a TCP SYN scan to imitate reconnaissance activity against the target system. The Nmap scan "Nmap -sS 172.30.1.28" identifies open ports and running services and it is commonly used by attackers before exploitation. 
 
+Nmap SYN Scan results:
+
 <img width="543" height="532" alt="image" src="https://github.com/user-attachments/assets/257be4d3-c0a0-41d7-b646-33151fca17de" />
 
 The TCP SYN Scan also known as a stealth scan sends SYN packets to the target ports and analyses them to determine whether the ports are open, closed, or filtered. The scan revealed multiple open servies on the target system including SSH (port 22) and HTTP (port 80) as the target system is intentionally configured with vulnerable services for security testing and IDS evaluation. A larger number of open ports increase the attack surface which provides multiple potential entry points for exploitation.
 
-Wiresharl output for Nmap SYN Scan:
+Wireshark output for Nmap SYN Scan:
 
 <img width="1643" height="293" alt="image" src="https://github.com/user-attachments/assets/40cb791a-96c1-4049-ac1a-33889bdaa66d" />
 
