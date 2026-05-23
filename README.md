@@ -174,3 +174,7 @@ Wireshark HTTP capture:
 The Wireshark capture shows a GET request to /test1 which is then followed by a 404 Not Found response. The capture also showed the encoded request (%74%65%73%74) being transmitted within the HTTP GET request line. This demonstrates how URL encoding appears at the network level. The server response 301 Moved Permanently was observed which indicated the encoded input was successfully decoded and processed before standard HTTP redirection was applied.
 
 Snort did not generate any alerts during URL encoded request (%74%65%73%74) and normal HTTP request which suggests that both responses were not classified as malicious by the intrusion detection rules. 
+
+## WIRESHARK CORRELATION
+
+
