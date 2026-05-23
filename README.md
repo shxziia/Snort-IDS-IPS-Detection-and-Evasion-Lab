@@ -91,11 +91,15 @@ Nmap was used to perform a TCP SYN scan to imitate reconnaissance activity again
 
 The TCP SYN Scan also known as a stealth scan sends SYN packets to the target ports and analyses them to determine whether the ports are open, closed, or filtered. The scan revealed multiple open servies on the target system including SSH (port 22) and HTTP (port 80) as the target system is intentionally configured with vulnerable services for security testing and IDS evaluation. A larger number of open ports increase the attack surface which provides multiple potential entry points for exploitation.
 
+Wiresharl output for Nmap SYN Scan:
+
 <img width="1643" height="293" alt="image" src="https://github.com/user-attachments/assets/40cb791a-96c1-4049-ac1a-33889bdaa66d" />
 
 Wireshark successfully captured the scan activity where it showed multiple SYN packets that were sent from the attacker machine to different destination ports. This demonstarted typical port scanning behavior.
 
 Snort successfully detected suspicious traffic produced by the Nmap SYN scan. The IDS produced two alerts including "SNMP AgentX/tcp request" and "SNMP request tcp" which were classified as attempted information leaks with a Priority 2 severity. This demonstrates Snorts ability to identify potentially malicious network behaviour in real time as these alerts show that reconnaissance and service enumeration activity was being performed against the target machine.
+
+Snort alerts for Nmap SYN scan:
 
 <img width="1282" height="90" alt="image" src="https://github.com/user-attachments/assets/985c3a10-39b2-4797-a7e1-33da5f093c3a" />
 
