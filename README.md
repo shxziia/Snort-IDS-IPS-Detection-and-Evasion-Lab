@@ -268,3 +268,4 @@ Hydra SSH brute force attack:
 Snort alert in IPS Mode:
 
 <img width="1225" height="173" alt="image" src="https://github.com/user-attachments/assets/5f1cadf7-4860-4bad-bc1c-422df9f16778" />
+
