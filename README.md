@@ -51,6 +51,8 @@ This ensured full packet visibility and allowed traffic generated during attack 
 
 To ensure network traffic was observable, I generated ICMP echo requests from kali to the Metasploitable 2 target host to verify end to end connecctivity within the lab network.
 
+ICMP packet analysis in Wireshark:
+
 <img width="1655" height="142" alt="image" src="https://github.com/user-attachments/assets/86aef9b2-e232-4661-ad1a-b561fe5f25b7" />
 
 After starting the capture in Wireshark, I filtered the traffic to ICMP to focus only on the ping activity. From the capture, Wireshark showed successful comunication by capturing both ICMP Echo request and Echo Reply packets confirming end to end connectivity was working as expected. 
