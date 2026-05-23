@@ -3,16 +3,36 @@
 ## Objective
 [Brief Objective]
 
+The objective of this project is to configure and evaluate Snort as both an Intrusion Detection System (IDS) and Intrusion Prevention System (IPS) within a controlled lab.
+The project aims to:
+- Monitor and analyse normal network traffic (ICMP, HTTP, SSH)
+- Simulate malicious activity using tools like Hydra and Nmap
+- Evaluate Snort's ability to detect reconnaissance, brute force, and evasion techniques
+- Correlate Snort alerts with Wireshark packet captures for validation
+- Assess false positives and fine tune detection rules for improved accuracy
+- Compare IDS and IPS functionality in terms of detection and response behaviour
+- 
 ## Skills Learned
-[Bullet Points]
 
+- Snort IDS/IPS configuration and rule writing
+- Network traffic analysis using Wireshark
+- Attack simulations (Nmap, Hydra)
+- Detection of scanning, brute force, and evasion techniques
+- False positive analysis and MITRE ATT&CK mapping
+- SOC-style alert correlation and investigation
 
 ## Tools used
-[Bullet Points]
 
+- Snort (IDS/IPS)
+- Wireshark (Packet Analysis)
+- Nmap (Network Scanning)
+- Hydra (Brute Force Attacks)
+- Kali Linux (Attack Platform)
+- Metasploitable 2 (Target System)
+- GitHub (Documentation and Version Control)
 ## Steps
 
-Stage 1 - Start monitoring (IDS Mode)
+# Start monitoring (IDS Mode)
 
 Launch Snort in IDS mode.
 
@@ -27,7 +47,7 @@ Start Packet Capture with Wireshark.
 In order to validate network traffic independently from Snort alerts, Wireshark is used to capture and inspect live packets travelling through the lab network.
 This ensured full packet visibility and allowed traffic generated during attack simulations and intrusion detections to be analysed at protocol level.
 
-Stage 2 - Baseline Traffic
+# Baseline Traffic
 
 To ensure network traffic was observable, I generated ICMP echo requests from kali to the Metasploitable 2 target host to verify end to end connecctivity within the lab network.
 
@@ -61,7 +81,7 @@ The "Follow TCP Stream" feature in Wireshark confirms that the output if fully e
 
 <img width="1097" height="711" alt="image" src="https://github.com/user-attachments/assets/cb59d2c6-d6a6-434e-9a1f-1146e40d4ee0" />
 
-MALICIOUS TRAFFIC - ATTACK SIMULATION
+# MALICIOUS TRAFFIC - ATTACK SIMULATION
 
 Nmap was used to perform a TCP SYN scan to imitate reconnaissance activity against the target system. The Nmap scan "Nmap -sS 172.30.1.28" identifies open ports and running services and it is commonly used by attackers before exploitation. 
 
@@ -123,7 +143,7 @@ Wireshark SSH traffic analysis during brute force:
 
 While using Hydra to brute force attacks against SSH, Snort did not generate alerts which indicates that IDS did not detect repeated attempts to connect as malicious under the current set rules. This shows a limitation in detection coverage for low-level and incomplete authentication attempts. 
 
-CONTROLLED EVASION SIMULATION
+# CONTROLLED EVASION SIMULATION
 
 ##
 
