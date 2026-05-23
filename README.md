@@ -108,16 +108,11 @@ Most of these alerts were classified as "Attempted information leaks" with prior
 Based on the Nmap findings, Hydra was selected to perform dictionary based brute force attacks to imitate an attacker trying to gain unauthorized access through credentials.
 Initially, we considered using SSH services for brute force simulations based on Nmaps findings. However, during testing it was clear that the attack could not proceed due to SSH cryptographic incompatibility between the attacker and the target system. The Metasploitable 2 SSH service only supports MAC algorithms such as HMAC-MD5 and HMAC-SHA1, whereas Kali SSH client uses modern cruptographic standards such as HMAC-SHA2-256 and HMAC-SHA2-512. This means that the key exchange process failed which prevented authentication attempts being made.
 
-SSH brute force attempt using Hydra:
+Dictionary based brute force attack against SSH service using Hydra:
 
 <img width="1891" height="198" alt="image" src="https://github.com/user-attachments/assets/c74d8c71-4707-4541-8c12-d4394f992378" />
 
-
 Hydra shows repeated connection attempts being made to the SSH service however, the attack fails at the key exchange stage. This is because of a cryptographic mismatch being made between the client and the server. This prevents authentication being completed.
-
-Dictionary based brute force attack against SSH service using Hydra:
-
-<img width="648" height="193" alt="image" src="https://github.com/user-attachments/assets/56243f45-6df1-4af2-b05f-fd51ef3a5461" />
 
 I used Wireshark to analyse SSH traffic which was generated during the brute force attack. The packet shows repeated TCP attempts to connect to port 22. Each attempt started with a TCP handshake, SYN, SYN-ACK. However, due to authentication and cryptographic negotiation failures SSH session was not fully established. The repeated connection attempt show automated brute force activity at the transport layer even though there was no credentials exchanged. 
 
@@ -228,8 +223,36 @@ Snort generated alerts despite the traffic being non malicious and legitimate. T
 
 Hydra SSH Brute Force Activity
 
+Hydra was used to imitate attempts to brute force against SSH with the RockYou password list against the target system. Wireshark confirmed multiple TCP connection attempts between the attacker and the target system showing repeated SYN and SYN-ACK exchanged on port 22. However,no completed SSH sessions were established and no payload level authentication data was observed. This is due to encryption negociation failure. 
+
+Snort did not generate any alerts as IDS did not classify the repeated connection attempts as malicious under the current rule set. This is a limitaion in detection capability as low level and incomplete authentication attempts did not trigger signature based alerts without specific brute force detection rules.
+
 Fragmented Nmap Scan
 
 To imitate IDS evasion we executed a fragmented Nmap scan using packet fragmentation techniques. Wireshark captured the packets and confirmed IP fragments and reassembly processes. Snort did not generate any alerts as the scan reduced detection effectiveness when the traffic is fragmented at the packet level. Therefore it was classified as a false negative as reconnaissance activity occured but it was not detected by IDS.
 
 Overall Snort is effective at detecting and generating alerts against clear reconnaissance and bruteforce patterns but miss low and slow or fragmented attacks. Wireshark confirmed all classified events were present at packet level which allowed accurate validation of IDS behaviour.
+
+# Snort Rule writing and Testing
+
+I created Snort rules to test and monitor key types of network activitywithin the lab environment. These custom rules were designed to detect ICMP activity, HTTP GET requests, and SSH connection attempts. After restarting Snort, previously generated network traffic was re-evaluated for detection capability. 
+
+The ICMP (Ping) scan successfully triggered the custom scan detection rule. This confirmed that Snort is correctly identifying reconnaissance activity. HTTP traffic was generated using curl which triggered the HTTP GET detection rule. This shows successful ,omitoring of web requests. SSh connection attempts were made and detected by Snort which generated alerts through custom SSH monitoring rules.
+
+The results confirm that the updated Snort configuration improved the visibility of network activity and it demonstrated accurate detection of bothe reconnaissance and service access traffic within the lab environment.
+
+ICMP (Ping) scan:
+
+<img width="551" height="170" alt="image" src="https://github.com/user-attachments/assets/1046ac9c-fb0d-41de-b4f3-d375162ca272" />
+
+HTTP /curl Test:
+
+<img width="613" height="502" alt="image" src="https://github.com/user-attachments/assets/7861e8ab-027e-4f31-9ce1-adb9e796ef97" />
+
+SSH test:
+
+<img width="917" height="70" alt="image" src="https://github.com/user-attachments/assets/b38caefa-9136-46de-86e5-f55dab12fff3" />
+
+Snort alert outputs after rule tuning:
+
+<img width="1165" height="241" alt="image" src="https://github.com/user-attachments/assets/310642ca-4a5b-4f5e-930d-1eb27ad5e9a8" />
