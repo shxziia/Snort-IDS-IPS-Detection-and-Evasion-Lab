@@ -86,13 +86,17 @@ To resolve this issue, we will explicitly enable an older cryptographic algorith
 
 Successful SSH connection attempt:
 
+<img width="803" height="341" alt="image" src="https://github.com/user-attachments/assets/83d83845-6f62-4924-9ab8-82d00ab950c3" />
+
+Wireshark packet analysis for SSH:
+
 <img width="1638" height="288" alt="image" src="https://github.com/user-attachments/assets/7b690aee-02d7-48a3-9079-35ea80676d99" />
 
 Wireshark confirmed successful establishment of an SSH session through the TCP three-way handshake on port 22. This was followed by an SSH protocol negotiation and encrypted session traffic.
 
 The "Follow TCP Stream" feature in Wireshark confirms that the output if fully encrypted and in a non-readable format. After the initial key exchange all communication between the client and the server is protected using SSH encryption ilustrating that packet-level inspection cannot reveal session content.
 
-Wirshark packet analysis for SSH attempt:
+Wireshark out fully encrypted and non readable:
 
 <img width="1097" height="711" alt="image" src="https://github.com/user-attachments/assets/cb59d2c6-d6a6-434e-9a1f-1146e40d4ee0" />
 
