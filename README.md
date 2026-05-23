@@ -256,3 +256,15 @@ SSH test:
 Snort alert outputs after rule tuning:
 
 <img width="1165" height="241" alt="image" src="https://github.com/user-attachments/assets/310642ca-4a5b-4f5e-930d-1eb27ad5e9a8" />
+
+# IPS Mode
+
+To evaluate Snort's Intrusion Prevention System (IPS), Hydra was used to brute force simulations against the SSH service. Hydra generated multiple authentication attempts against the target system which is common in reconnaissance and attack scenarios. While the attack was running, S nort generated alerts in IPS mode detecting SSH connection activity on port 22. This confirmed that Snort actively monitors and identifies brute force patterns in real time. 
+
+Hydra SSH brute force attack:
+
+<img width="1891" height="193" alt="image" src="https://github.com/user-attachments/assets/66c9e1de-9fff-466e-b62d-146077e12f5a" />
+
+Snort alert in IPS Mode:
+
+<img width="1225" height="173" alt="image" src="https://github.com/user-attachments/assets/5f1cadf7-4860-4bad-bc1c-422df9f16778" />
