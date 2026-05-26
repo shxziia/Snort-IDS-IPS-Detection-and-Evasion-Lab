@@ -12,7 +12,7 @@ The project aims to:
 - Assess false positives and fine tune detection rules for improved accuracy
 - Compare IDS and IPS functionality in terms of detection and response behaviour
 - 
-## Skills Learned
+## Skills Gained
 
 - Snort IDS/IPS configuration and rule writing
 - Network traffic analysis using Wireshark
